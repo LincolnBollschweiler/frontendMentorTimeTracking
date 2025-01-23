@@ -1,5 +1,19 @@
+import { useEffect, useState } from "react";
+
 const Card = ({ title, timeframe, data }) => {
   const id = title.toLowerCase().replace(" ", "-");
+  const [timeLabel, setTimeLabel] = useState("Yesterday");
+
+  useEffect(() => {
+    if (timeframe === "daily") {
+      setTimeLabel("Yesterday");
+    } else if (timeframe === "weekly") {
+      setTimeLabel("Last Week");
+    } else {
+      setTimeLabel("Last Month");
+    }
+  }, [timeframe]);
+
   return (
     <div className="card flex">
       <div className={`top flex ${id}`}>
@@ -16,7 +30,7 @@ const Card = ({ title, timeframe, data }) => {
         </div>
         <div className="time-current">{data[timeframe].current}hrs</div>
         <div className="time-previous">
-          {`Previous - ${data[timeframe].previous}`}hrs
+          {`${timeLabel} - ${data[timeframe].previous}`}hrs
         </div>
       </div>
     </div>
