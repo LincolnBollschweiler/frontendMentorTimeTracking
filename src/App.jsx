@@ -23,9 +23,24 @@ function App() {
             <div className="name">Jeremy Robson</div>
           </div>
           <div className="bottom flex">
-            <button onClick={() => setTimeframe("daily")}>Daily</button>
-            <button onClick={() => setTimeframe("weekly")}>Weekly</button>
-            <button onClick={() => setTimeframe("monthly")}>Monthly</button>
+            <button
+              className={timeframe === "daily" && "selected"}
+              onClick={() => setTimeframe("daily")}
+            >
+              Daily
+            </button>
+            <button
+              className={timeframe === "weekly" && "selected"}
+              onClick={() => setTimeframe("weekly")}
+            >
+              Weekly
+            </button>
+            <button
+              className={timeframe === "monthly" && "selected"}
+              onClick={() => setTimeframe("monthly")}
+            >
+              Monthly
+            </button>
           </div>
         </div>
         <Card

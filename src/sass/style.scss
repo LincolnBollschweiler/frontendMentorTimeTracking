@@ -116,6 +116,11 @@ body {
           &:hover {
             color: var(--pale-blue);
           }
+
+          &.selected {
+            color: white;
+            font-weight: 500;
+          }
         }
       }
     }
